@@ -30,9 +30,14 @@ class Animal extends Model
         return $this->belongsTo(Breed::class);
     }
 
-    public function owner(): HasOne
+    public function owner(): belongsTo
     {
-        return $this->hasOne(Owner::class);
+        return $this->belongsTo(Owner::class);
+    }
+
+    public function animalType(): BelongsTo
+    {
+        return $this->belongsTo(AnimalType::class);
     }
 
 }

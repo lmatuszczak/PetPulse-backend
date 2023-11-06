@@ -21,7 +21,7 @@ class AnimalSeeder extends Seeder
                 'age' => 5,
                 'color' => 'black',
                 'gender' => 'XYZ',
-                'species' => 'mammal',
+                'animal_type_id' => 1,
                 'breed_id' => 1,
                 'owner_id' => 1,
             ]

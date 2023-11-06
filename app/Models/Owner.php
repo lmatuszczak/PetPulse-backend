@@ -16,8 +16,8 @@ class Owner extends Model
     {
         return $this->hasOne(User::class);
     }
-    public function animal(): BelongsTo
+    public function animal(): hasOne
     {
-        return $this->belongsTo(Animal::class);
+        return $this->hasOne(Animal::class);
     }
 }
