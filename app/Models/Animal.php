@@ -19,7 +19,7 @@ class Animal extends Model
         'age',
         'color',
         'gender',
-        'species',
+        'animal_type_id',
         'breed_id',
         'owner_id',
 
