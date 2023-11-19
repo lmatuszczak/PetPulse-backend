@@ -21,8 +21,12 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:sanctum');
 
-Route::get('/animal',[AnimalController::class, 'index']);
-Route::post('/animal/create',[AnimalController::class,'store']);
+Route::prefix('animal')->group(function () {
+    Route::get('/', [AnimalController::class, 'index']);
+    Route::post('/create', [AnimalController::class, 'store']);
+    Route::patch('/update/{id}', [AnimalController::class, 'update']);
+    Route::delete('/delete/{animal}', [AnimalController::class, 'delete']);
+});
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

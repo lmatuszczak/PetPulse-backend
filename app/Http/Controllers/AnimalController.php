@@ -30,13 +30,14 @@ class AnimalController extends Controller
         return response()->json($animal,201);
     }
 
-    public function update()
+    public function update(Request $request, int $id)
     {
-
+        $animal = Animal::with(['animalType', 'breed', 'owner'])->findOrFail($id);
+        return response()->json($animal);
     }
 
-    public function delete()
+    public function delete(Animal $animal)
     {
-
+        return response()->json($animal->delete());
     }
 }
