@@ -6,7 +6,10 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreAnimalRequest extends FormRequest
 {
-
+    public function authorize(): bool
+    {
+        return true;
+    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -16,8 +19,8 @@ class StoreAnimalRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' =>'string|required|max:255',
-            'microchip_number' =>'integer|digits:15|required|unique:animals',
+            'name' => 'string|required|max:255',
+            'microchip_number' => 'integer|digits:15|required|unique:animals',
             'weight' => 'integer|required',
             'age' => 'integer|required',
             'color' => 'string|required|max:255',

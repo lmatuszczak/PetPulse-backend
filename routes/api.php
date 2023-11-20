@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\AnimalTypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,15 @@ Route::prefix('animal')->group(function () {
     Route::get('/{animal}', [AnimalController::class, 'index']);
     Route::post('/create', [AnimalController::class, 'store']);
     Route::patch('/update/{animal}', [AnimalController::class, 'update']);
-    Route::delete('/delete/{animal}', [AnimalController::class, 'delete']);
+    Route::delete('/destroy/{animal}', [AnimalController::class, 'destroy']);
+});
+
+Route::prefix('animal-type')->group(function () {
+    Route::get('/', [AnimalTypeController::class, 'index']);
+    Route::get('/{animalType}', [AnimalTypeController::class, 'show']);
+    Route::post('/create', [AnimalTypeController::class, 'store']);
+    Route::patch('/update/{animalType}', [AnimalTypeController::class, 'update']);
+    Route::delete('/destroy/{animalType}', [AnimalTypeController::class, 'destroy']);
 });
 
 

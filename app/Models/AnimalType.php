@@ -10,6 +10,10 @@ class AnimalType extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+    ];
+
     public function animal(): HasMany
     {
         return $this->hasMany(Animal::class);

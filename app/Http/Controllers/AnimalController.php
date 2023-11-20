@@ -10,7 +10,7 @@ class AnimalController extends Controller
 {
     public function index(Animal $animal)
     {
-        return response()->json($animal::with(['animalType', 'breed', 'owner'])->get());
+        return response()->json($animal->load(['animalType', 'breed', 'owner']));
     }
 
     public function store(StoreAnimalRequest $request)
@@ -23,7 +23,7 @@ class AnimalController extends Controller
         return response()->json($animal->update($request->toArray()));
     }
 
-    public function delete(Animal $animal)
+    public function destroy(Animal $animal)
     {
         return response()->json($animal->delete());
     }

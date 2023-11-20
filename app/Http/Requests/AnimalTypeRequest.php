@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginUserRequest extends FormRequest
+class AnimalTypeRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -19,8 +19,7 @@ class LoginUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email|max:255|exists:users,email',
-            'password' => 'required|max:255|min:8|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+            'name' => 'string|required|unique:animal_types|max:255',
         ];
     }
 }
