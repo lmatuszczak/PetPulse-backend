@@ -18,11 +18,12 @@ return new class extends Migration {
             $table->integer('age');
             $table->string('color');
             $table->string('gender');
-            $table->string('species');
+            $table->unsignedBigInteger('animal_type_id');
             $table->unsignedBigInteger('breed_id');
             $table->unsignedBigInteger('owner_id');
             $table->timestamps();
 
+            $table->foreign('animal_type_id')->references('id')->on('animal_types');
             $table->foreign('breed_id')->references('id')->on('breeds');
             $table->foreign('owner_id')->references('id')->on('owners');
         });
