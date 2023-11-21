@@ -20,15 +20,15 @@ class UpdateAnimalRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string|max:255|sometimes',
-            'microchip_number' => 'integer|digits:15|unique:animals|sometimes',
+            'name' => 'string|max:255',
+            'microchip_number' => 'integer|digits:15|unique:animals',
             'weight' => 'integer|sometimes',
             'age' => 'integer|sometimes',
-            'color' => 'string|max:255|sometimes',
-            'gender' => 'string|max:255|sometimes',
-            'animal_type_id' => 'integer|exists:animal_types,id|sometimes',
-            'breed_id' => 'integer|exists:breeds,id|sometimes',
-            'owner_id' => 'integer|exists:owners,id|sometimes'
+            'color' => 'string|max:255',
+            'gender' => 'string|max:255',
+            'animal_type_id' => 'integer|exists:animal_types,id',
+            'breed_id' => 'integer|exists:breeds,id',
+            'owner_id' => 'integer|exists:owners,id'
         ];
     }
 }

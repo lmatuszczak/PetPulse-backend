@@ -9,12 +9,23 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Owner extends Model
 {
-    use HasFactory;
 
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'company_name',
+        'nip',
+        'regon',
+        'postal_code',
+        'city',
+        'street',
+        'phone',
+        'user_id',
+    ];
 
-    public function user(): HasOne
+    public function user(): BelongsTo
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
     public function animal(): hasOne
     {
