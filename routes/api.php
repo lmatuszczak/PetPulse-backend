@@ -24,14 +24,14 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:sanctum');
 
-Route::prefix('animal')->group(function () {
+Route::prefix('animal')->middleware('auth:sanctum')->group(function () {
     Route::get('/{animal}', [AnimalController::class, 'index']);
     Route::post('/create', [AnimalController::class, 'store']);
     Route::patch('/update/{animal}', [AnimalController::class, 'update']);
     Route::delete('/destroy/{animal}', [AnimalController::class, 'destroy']);
 });
 
-Route::prefix('animal-type')->group(function () {
+Route::prefix('animal-type')->middleware('auth:sanctum')->group(function () {
     Route::get('/', [AnimalTypeController::class, 'index']);
     Route::get('/{animalType}', [AnimalTypeController::class, 'show']);
     Route::post('/create', [AnimalTypeController::class, 'store']);
@@ -39,7 +39,7 @@ Route::prefix('animal-type')->group(function () {
     Route::delete('/destroy/{animalType}', [AnimalTypeController::class, 'destroy']);
 });
 
-Route::prefix('breed')->group(function () {
+Route::prefix('breed')->middleware('auth:sanctum')->group(function () {
     Route::get('/', [BreedController::class, 'index']);
     Route::get('/{breed}', [BreedController::class, 'show']);
     Route::post('/create', [BreedController::class, 'store']);
