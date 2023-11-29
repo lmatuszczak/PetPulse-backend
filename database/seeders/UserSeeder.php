@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,16 +19,19 @@ class UserSeeder extends Seeder
             'email' => 'admin@przyklad.pl',
             'name' => 'admin',
             'password' => Hash::make('Password1!'),
+            'role_id' => Role::IS_ADMIN,
+        ]);
+        User::create([
+            'email' => 'vet@przyklad.pl',
+            'name' => 'vet',
+            'password' => Hash::make('Password1!'),
+            'role_id' => Role::IS_VET,
         ]);
         User::create([
             'email' => 'user@przyklad.pl',
             'name' => 'user',
             'password' => Hash::make('Password1!'),
-        ]);
-        User::create([
-            'email' => 'guest@przyklad.pl',
-            'name' => 'guest',
-            'password' => Hash::make('Password1!'),
+            'role_id' => Role::IS_USER,
         ]);
     }
 }

@@ -11,6 +11,10 @@ use App\Models\Owner;
 
 class OwnerController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Owner::class, 'owner');
+    }
     public function index()
     {
         return response()->json(Owner::all()->load(['user']));

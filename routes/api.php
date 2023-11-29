@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\OwnerController;
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\BreedController;
+use App\Http\Controllers\Api\RoleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,8 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:sanctum');
 
 Route::prefix('animal')->middleware('auth:sanctum')->group(function () {
-    Route::get('/{animal}', [AnimalController::class, 'index']);
+    Route::get('/', [AnimalController::class, 'index']);
+    Route::get('/{animal}', [AnimalController::class, 'show']);
     Route::post('/create', [AnimalController::class, 'store']);
     Route::patch('/update/{animal}', [AnimalController::class, 'update']);
     Route::delete('/destroy/{animal}', [AnimalController::class, 'destroy']);
@@ -47,11 +49,15 @@ Route::prefix('breed')->middleware('auth:sanctum')->group(function () {
     Route::delete('/destroy/{breed}', [BreedController::class, 'destroy']);
 });
 
-Route::prefix('owner')->group(function () {
+Route::prefix('owner')->middleware('auth:sanctum')->group(function () {
     Route::get('/', [OwnerController::class, 'index']);
     Route::get('/{owner}', [OwnerController::class, 'show']);
     Route::post('/create', [OwnerController::class, 'store']);
     Route::patch('/update/{owner}', [OwnerController::class, 'update']);
+});
+
+Route::prefix('role')->middleware('auth:sanctum')->group(function () {
+    Route::get('/', [RoleController::class, 'index']);
 });
 
 

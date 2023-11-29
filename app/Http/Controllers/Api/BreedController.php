@@ -8,6 +8,11 @@ use App\Models\Breed;
 
 class BreedController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Breed::class, 'breed');
+    }
     public function index()
     {
         return response()->json(Breed::all());
