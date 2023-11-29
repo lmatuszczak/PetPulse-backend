@@ -48,4 +48,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(Owner::class);
     }
+
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function hasAnyRole($roles)
+    {
+        return $this->whereIn('role_id', $roles)->exists();
+    }
 }

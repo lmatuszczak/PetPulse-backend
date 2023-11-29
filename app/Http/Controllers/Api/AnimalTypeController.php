@@ -9,6 +9,11 @@ use App\Models\AnimalType;
 
 class AnimalTypeController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(AnimalType::class, 'animalType');
+    }
     public function index()
     {
         return response()->json(AnimalType::all());
