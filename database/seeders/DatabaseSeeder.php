@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
                 BreedSeeder::class,
                 AnimalTypeSeeder::class,
                 AnimalSeeder::class,
+                CalendarSeeder::class,
             ]
         );
     }

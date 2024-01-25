@@ -18,6 +18,41 @@ class BreedSeeder extends Seeder
                 'name' => 'Siberian Husky',
             ]
         );
+        Breed::create(
+            [
+                'name' => 'Maine Coon',
+            ]
+        );
+        Breed::create(
+            [
+                'name' => 'Persian',
+            ]
+        );
+        Breed::create(
+            [
+                'name' => 'Arabian',
+            ]
+        );
+        Breed::create(
+            [
+                'name' => 'Clydesdale',
+            ]
+        );
+        Breed::create(
+            [
+                'name' => 'Golden Retriever',
+            ]
+        );
+        Breed::create(
+            [
+                'name' => 'Appaloosa',
+            ]
+        );
+        Breed::create(
+            [
+                'name' => 'Sphynx',
+            ]
+        );
 
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\BreedController;
 use App\Http\Controllers\Api\RoleController;
+use App\Http\Controllers\Api\CalendarController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -58,6 +59,10 @@ Route::prefix('owner')->middleware('auth:sanctum')->group(function () {
 
 Route::prefix('role')->middleware('auth:sanctum')->group(function () {
     Route::get('/', [RoleController::class, 'index']);
+});
+
+Route::prefix('calendar')->middleware('auth:sanctum')->group(function () {
+    Route::get('/', [CalendarController::class, 'index']);
 });
 
 

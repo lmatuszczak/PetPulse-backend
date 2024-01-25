@@ -18,5 +18,35 @@ class AnimalTypeSeeder extends Seeder
                 'name' => 'dog'
             ]
         );
+        AnimalType::create(
+            [
+                'name' => 'cat'
+            ]
+        );
+        AnimalType::create(
+            [
+                'name' => 'mouse'
+            ]
+        );
+        AnimalType::create(
+            [
+                'name' => 'spider'
+            ]
+        );
+        AnimalType::create(
+            [
+                'name' => 'hamster'
+            ]
+        );
+        AnimalType::create(
+            [
+                'name' => 'rabbit'
+            ]
+        );
+        AnimalType::create(
+            [
+                'name' => 'horse'
+            ]
+        );
     }
 }
