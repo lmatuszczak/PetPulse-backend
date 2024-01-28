@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\BreedController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\CalendarController;
 use App\Http\Controllers\Api\TestController;
+use App\Http\Controllers\api\MedicalTreatmentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -76,6 +77,14 @@ Route::prefix('test')->middleware('auth:sanctum')->group(function () {
     Route::post('/create', [TestController::class, 'store']);
     Route::patch('/update/{test}', [TestController::class, 'update']);
     Route::delete('/destroy/{test}', [TestController::class, 'destroy']);
+});
+
+Route::prefix('medical-treatment')->middleware('auth:sanctum')->group(function () {
+    Route::get('/', [MedicalTreatmentController::class, 'index']);
+    Route::get('/{medicalTreatment}', [MedicalTreatmentController::class, 'show']);
+    Route::post('/create', [MedicalTreatmentController::class, 'store']);
+    Route::patch('/update/{medicalTreatment}', [MedicalTreatmentController::class, 'update']);
+    Route::delete('/destroy/{medicalTreatment}', [MedicalTreatmentController::class, 'destroy']);
 });
 
 

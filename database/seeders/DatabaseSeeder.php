@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
                 AnimalSeeder::class,
                 CalendarSeeder::class,
                 TestSeeder::class,
+                MedicalTreatmentSeeder::class,
             ]
         );
     }

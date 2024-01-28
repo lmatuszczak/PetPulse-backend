@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTestRequest;
+use App\Http\Requests\UpdateTestRequest;
 use App\Models\Animal;
 use App\Models\Owner;
 use App\Models\Role;
 use App\Models\Test;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class TestController extends Controller
@@ -32,12 +33,12 @@ class TestController extends Controller
         return response()->json($test->load('animal'));
     }
 
-    public function store(Request $request)
+    public function store(StoreTestRequest $request)
     {
         return response()->json(Test::create($request->toArray()), 201);
     }
 
-    public function update(Request $request, Test $test)
+    public function update(UpdateTestRequest $request, Test $test)
     {
         return response()->json($test->update($request->toArray()));
     }
