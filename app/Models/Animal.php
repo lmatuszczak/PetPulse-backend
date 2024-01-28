@@ -48,4 +48,9 @@ class Animal extends Model
         return $this->hasMany(Test::class);
     }
 
+    public function medicalTreatment(): HasMany
+    {
+        return $this->hasMany(MedicalTreatment::class);
+    }
+
 }
