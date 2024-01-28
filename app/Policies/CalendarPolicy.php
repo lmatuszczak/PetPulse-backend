@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Calendar;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
@@ -13,15 +14,15 @@ class CalendarPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return $user->hasAnyRole([Role::IS_ADMIN, Role::IS_VET]);
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Calendar $calendar): bool
+    public function view(User $user): bool
     {
-        //
+        return $user->hasAnyRole([Role::IS_ADMIN, Role::IS_VET, Role::IS_USER]);
     }
 
     /**
@@ -29,38 +30,38 @@ class CalendarPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->hasAnyRole([Role::IS_ADMIN, Role::IS_VET]);
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Calendar $calendar): bool
+    public function update(User $user): bool
     {
-        //
+        return $user->hasAnyRole([Role::IS_ADMIN, Role::IS_VET]);
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Calendar $calendar): bool
+    public function delete(User $user): bool
     {
-        //
+        return $user->hasAnyRole([Role::IS_ADMIN, Role::IS_VET]);
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Calendar $calendar): bool
+    public function restore(User $user): bool
     {
-        //
+        return $user->hasAnyRole([Role::IS_ADMIN]);
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Calendar $calendar): bool
+    public function forceDelete(User $user): bool
     {
-        //
+        return $user->hasAnyRole([Role::IS_ADMIN]);
     }
 }
