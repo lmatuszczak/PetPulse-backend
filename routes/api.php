@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\BreedController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\CalendarController;
+use App\Http\Controllers\Api\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -68,6 +69,15 @@ Route::prefix('calendar')->middleware('auth:sanctum')->group(function () {
     Route::patch('/update/{calendar}', [CalendarController::class, 'update']);
     Route::delete('/destroy/{calendar}', [CalendarController::class, 'destroy']);
 });
+
+Route::prefix('test')->middleware('auth:sanctum')->group(function () {
+    Route::get('/', [TestController::class, 'index']);
+    Route::get('/{test}', [TestController::class, 'show']);
+    Route::post('/create', [TestController::class, 'store']);
+    Route::patch('/update/{test}', [TestController::class, 'update']);
+    Route::delete('/destroy/{test}', [TestController::class, 'destroy']);
+});
+
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

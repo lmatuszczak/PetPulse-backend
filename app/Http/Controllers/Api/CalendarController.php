@@ -37,19 +37,13 @@ class CalendarController extends Controller
 
     public function store(StoreCalendarRequest $request)
     {
-        $user = User::where('id', $request->user_id)->first();
-        if ($user->role_id === Role::IS_VET)
             return response()->json(Calendar::create($request->toArray()), 201);
-        return response()->json('Access to this operation is forbidden for users without the veterinarian role.', 403);
 
     }
 
     public function update(UpdateCalendarRequest $request, Calendar $calendar)
     {
-        $user = User::where('id', $request->user_id)->first();
-        if ($user->role_id === Role::IS_VET)
-            return response()->json($calendar->update($request->toArray()), 201);
-        return response()->json('Access to this operation is forbidden for users without the veterinarian role.', 403);
+            return response()->json($calendar->update($request->toArray()));
     }
 
     public function destroy(Calendar $calendar)

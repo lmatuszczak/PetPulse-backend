@@ -43,4 +43,9 @@ class Animal extends Model
         return $this->hasMany(Calendar::class);
     }
 
+    public function test(): HasMany
+    {
+        return $this->hasMany(Test::class);
+    }
+
 }
