@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCalendarRequest extends FormRequest
+class StoreTestRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,12 +22,11 @@ class UpdateCalendarRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string|max:255',
+            'name' => 'string|required|max:255',
             'description' => 'string',
-            'start_date' => 'date',
-            'end_date' => 'date',
-            'user_id' => 'numeric|exists:users,id',
-            'animal_id' => 'numeric|exists:animals,id',
+            'start_date' => 'date|required',
+            'end_date' => 'date|required',
+            'animal_id' => 'numeric|required|exists:animals,id',
         ];
     }
 }
