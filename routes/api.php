@@ -66,7 +66,7 @@ Route::prefix('calendar')->middleware('auth:sanctum')->group(function () {
     Route::get('/{calendar}', [CalendarController::class, 'show']);
     Route::post('/create', [CalendarController::class, 'store']);
     Route::patch('/update/{calendar}', [CalendarController::class, 'update']);
-    Route::patch('/destroy/{calendar}', [CalendarController::class, 'destroy']);
+    Route::delete('/destroy/{calendar}', [CalendarController::class, 'destroy']);
 });
 
 
