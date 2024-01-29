@@ -16,7 +16,7 @@ class AnimalController extends Controller
     }
     public function index()
     {
-        return response()->json(Animal::all());
+        return response()->json(Animal::all()->load('animalType', 'breed', 'owner'));
     }
 
     public function show(Animal $animal)
