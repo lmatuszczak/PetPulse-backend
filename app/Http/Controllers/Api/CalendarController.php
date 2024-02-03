@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Auth;
 
 class CalendarController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Calendar::class, 'calendar');
+    }
     public function index()
     {
         $userRole = Auth::user()->role_id;

@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Auth;
 
 class TestController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Test::class, 'test');
+    }
     public function index()
     {
         $userRole = Auth::user()->role_id;

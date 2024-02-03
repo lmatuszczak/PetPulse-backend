@@ -4,21 +4,24 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateTestRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(User::class, 'user');
+    }
     public function index()
     {
-        return response()->json(User::all());
+        return response()->json(User::all()->load('role'));
     }
 
     public function show(User $user)
     {
-        return response()->json($user);
+        return response()->json($user->load('role'));
     }
 
     public function store(StoreUserRequest $request)

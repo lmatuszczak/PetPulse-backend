@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [RegisterController::class, 'store']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:sanctum');
+Route::get('/user-info', [LoginController::class, 'getUserInfo'])->middleware('auth:sanctum');
 
 Route::prefix('animal')->middleware('auth:sanctum')->group(function () {
     Route::get('/', [AnimalController::class, 'index']);

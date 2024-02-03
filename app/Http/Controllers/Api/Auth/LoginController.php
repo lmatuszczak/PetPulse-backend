@@ -27,4 +27,10 @@ class LoginController extends Controller
         Auth::user()->tokens()->delete();
         return response()->json();
     }
+
+    public function getUserInfo()
+    {
+        return response()->json(Auth::user()->load('role')->toArray());
+    }
+
 }

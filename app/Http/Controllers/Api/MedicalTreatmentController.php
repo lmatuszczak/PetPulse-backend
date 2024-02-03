@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Auth;
 
 class MedicalTreatmentController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(MedicalTreatment::class, 'medicalTreatment');
+    }
     public function index()
     {
         $userRole = Auth::user()->role_id;
