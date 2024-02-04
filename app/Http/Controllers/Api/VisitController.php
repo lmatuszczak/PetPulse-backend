@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Auth;
 
 class VisitController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Visit::class, 'visit');
+    }
     public function index()
     {
         $userRole = Auth::user()->role_id;

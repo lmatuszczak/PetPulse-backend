@@ -25,59 +25,6 @@ class CalendarSeeder extends Seeder
                 'animal_id' => 3,
                 'visit_id' => 1,
             ]
-        );Calendar::create(
-            [
-                'name' => 'Wydarzenie2',
-                'description' => 'Opis2',
-                'start_date' => Carbon::now(),
-                'end_date' => Carbon::now()->addHour(),
-                'user_id' => 2,
-                'animal_id' => 2,
-                'visit_id' => 1,
-            ]
-        );Calendar::create(
-            [
-                'name' => 'Wydarzenie3',
-                'description' => 'Opis3',
-                'start_date' => Carbon::now(),
-                'end_date' => Carbon::now()->addHour(),
-                'user_id' => 1,
-                'animal_id' => 1,
-                'visit_id' => 1,
-            ]
-        );
-        Calendar::create(
-            [
-                'name' => 'Wydarzenie4',
-                'description' => 'Opis4',
-                'start_date' => Carbon::now(),
-                'end_date' => Carbon::now()->addHour(),
-                'user_id' => 3,
-                'animal_id' => 3,
-                'visit_id' => 1,
-            ]
-        );
-        Calendar::create(
-            [
-                'name' => 'Wydarzenie5',
-                'description' => 'Opis5',
-                'start_date' => Carbon::now(),
-                'end_date' => Carbon::now()->addHour(),
-                'user_id' => 2,
-                'animal_id' => 2,
-                'visit_id' => 1,
-            ]
-        );
-        Calendar::create(
-            [
-                'name' => 'Wydarzenie6',
-                'description' => 'Opis6',
-                'start_date' => Carbon::now(),
-                'end_date' => Carbon::now()->addHour(),
-                'user_id' => 1,
-                'animal_id' => 1,
-                'visit_id' => 1,
-            ]
         );
 
     }

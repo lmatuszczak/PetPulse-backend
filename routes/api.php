@@ -13,6 +13,7 @@ use App\Http\Controllers\api\MedicalTreatmentController;
 use App\Http\Controllers\api\UserController;
 use App\Http\Controllers\api\RecommendationController;
 use App\Http\Controllers\api\VisitController;
+use App\Http\Controllers\api\VisitPanelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -110,5 +111,9 @@ Route::prefix('visit')->middleware('auth:sanctum')->group(function () {
     Route::get('/', [VisitController::class, 'index']);
     Route::get('/{visit}', [VisitController::class, 'show']);
     Route::patch('/update/{visit}', [VisitController::class, 'update']);
+});
+
+Route::prefix('visit-panel')->middleware('auth:sanctum')->group(function () {
+    Route::get('/{visit}', [VisitPanelController::class, 'show']);
 });
 
