@@ -62,6 +62,10 @@ class User extends Authenticatable
 
     public function hasAnyRole($roles)
     {
-        return $this->whereIn('role_id', $roles)->exists();
+        if (!is_array($roles)) {
+            $roles = [$roles];
+        }
+
+        return in_array($this->getAttribute('role_id'), $roles);
     }
 }

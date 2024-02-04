@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\CalendarController;
 use App\Http\Controllers\Api\TestController;
 use App\Http\Controllers\api\MedicalTreatmentController;
 use App\Http\Controllers\api\UserController;
+use App\Http\Controllers\api\RecommendationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -94,5 +95,13 @@ Route::prefix('user')->middleware('auth:sanctum')->group(function () {
     Route::post('/create', [UserController::class, 'store']);
     Route::patch('/update/{user}', [UserController::class, 'update']);
     Route::delete('/destroy/{user}', [UserController::class, 'destroy']);
+});
+
+Route::prefix('recommendation')->middleware('auth:sanctum')->group(function () {
+    Route::get('/', [RecommendationController::class, 'index']);
+    Route::get('/{recommendation}', [RecommendationController::class, 'show']);
+    Route::post('/create', [RecommendationController::class, 'store']);
+    Route::patch('/update/{recommendation}', [RecommendationController::class, 'update']);
+    Route::delete('/destroy/{recommendation}', [RecommendationController::class, 'destroy']);
 });
 
