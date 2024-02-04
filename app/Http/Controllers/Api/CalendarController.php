@@ -10,6 +10,7 @@ use App\Models\Calendar;
 use App\Models\Owner;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Visit;
 use Illuminate\Support\Facades\Auth;
 
 class CalendarController extends Controller
@@ -42,8 +43,19 @@ class CalendarController extends Controller
 
     public function store(StoreCalendarRequest $request)
     {
-            return response()->json(Calendar::create($request->toArray()), 201);
+            $visit = Visit::create([
+                'name' => $request->name,
+                'description' => $request->description,
+                'status' => 'Zaplanowany',
+                'animal_id' => $request->animal_id,
+                'user_id' => $request->user_id,
+                'start_date' => $request->start_date,
+                'end_date' => $request->end_date,
+                ]);
+            $calendarData = $request->toArray();
+            $calendarData['visit_id'] = $visit->id;
 
+            return response()->json(Calendar::create($calendarData), 201);
     }
 
     public function update(UpdateCalendarRequest $request, Calendar $calendar)

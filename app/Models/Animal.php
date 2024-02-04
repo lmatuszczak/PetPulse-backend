@@ -58,4 +58,9 @@ class Animal extends Model
         return $this->hasMany(Recommendation::class);
     }
 
+    public function visit(): HasMany
+    {
+        return $this->hasMany(Visit::class);
+    }
+
 }

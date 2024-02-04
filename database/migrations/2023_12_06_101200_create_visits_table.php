@@ -11,18 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('calendars', function (Blueprint $table) {
+        Schema::create('visits', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
+            $table->string('status');
+            $table->unsignedBigInteger('animal_id');
+            $table->unsignedBigInteger('user_id');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('animal_id');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('animal_id')->references('id')->on('animals');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('calendars');
+        Schema::dropIfExists('visits');
     }
 };

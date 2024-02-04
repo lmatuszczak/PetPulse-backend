@@ -23,11 +23,11 @@ class TestController extends Controller
         $userRole = Auth::user()->role_id;
         if ($userRole === Role::IS_ADMIN || $userRole === Role::IS_VET)
         {
-            return response()->json(Test::all()->load('animal'));
+            return response()->json(Test::all()->load(['animal', 'visit']));
         }
         $owner_id = Owner::where('user_id', Auth::user()->id)->pluck('id');
         $arrayAnimals = Animal::where('owner_id', $owner_id)->pluck('id')->toArray();
-        $test = Test::whereIn('animal_id', $arrayAnimals)->get()->load('animal');
+        $test = Test::whereIn('animal_id', $arrayAnimals)->get()->load(['animal', 'visit']);
         return response()->json($test);
 
     }
@@ -35,7 +35,7 @@ class TestController extends Controller
     public function show(Test $test)
     {
 
-        return response()->json($test->load('animal'));
+        return response()->json($test->load(['animal', 'visit']));
     }
 
     public function store(StoreTestRequest $request)
