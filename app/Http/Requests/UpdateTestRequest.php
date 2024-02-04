@@ -27,6 +27,7 @@ class UpdateTestRequest extends FormRequest
             'start_date' => 'date',
             'end_date' => 'date',
             'animal_id' => 'numeric|exists:animals,id',
+            'visit_id' => 'numeric|exists:visits,id',
         ];
     }
 }

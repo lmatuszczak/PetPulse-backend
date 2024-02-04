@@ -20,6 +20,7 @@ class TestSeeder extends Seeder
                 'start_date' => now(),
                 'end_date' => now(),
                 'animal_id' => 1,
+                'visit_id' => 1,
             ]
         );
         Test::create(
@@ -29,6 +30,7 @@ class TestSeeder extends Seeder
                 'start_date' => now(),
                 'end_date' => now(),
                 'animal_id' => 1,
+                'visit_id' => 1,
             ]
         );
         Test::create(
@@ -38,6 +40,7 @@ class TestSeeder extends Seeder
                 'start_date' => now(),
                 'end_date' => now(),
                 'animal_id' => 1,
+                'visit_id' => 1,
             ]
         );
         Test::create(
@@ -47,6 +50,7 @@ class TestSeeder extends Seeder
                 'start_date' => now(),
                 'end_date' => now(),
                 'animal_id' => 2,
+                'visit_id' => 1,
             ]
         );
         Test::create(
@@ -56,6 +60,7 @@ class TestSeeder extends Seeder
                 'start_date' => now(),
                 'end_date' => now(),
                 'animal_id' => 3,
+                'visit_id' => 1,
             ]
         );
         Test::create(
@@ -65,6 +70,7 @@ class TestSeeder extends Seeder
                 'start_date' => now(),
                 'end_date' => now(),
                 'animal_id' => 4,
+                'visit_id' => 1,
             ]
         );
         Test::create(
@@ -74,6 +80,7 @@ class TestSeeder extends Seeder
                 'start_date' => now(),
                 'end_date' => now(),
                 'animal_id' => 5,
+                'visit_id' => 1,
             ]
         );
     }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->dateTime('end_date');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('animal_id');
+            $table->unsignedBigInteger('visit_id');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

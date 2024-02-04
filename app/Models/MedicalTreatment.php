@@ -14,10 +14,15 @@ class MedicalTreatment extends Model
         'start_date',
         'end_date',
         'animal_id',
+        'visit_id',
     ];
 
     public function animal(): BelongsTo
     {
         return $this->belongsTo(Animal::class);
+    }
+    public function visit(): BelongsTo
+    {
+        return $this->belongsTo(Visit::class);
     }
 }

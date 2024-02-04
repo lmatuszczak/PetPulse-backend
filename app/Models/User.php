@@ -60,6 +60,11 @@ class User extends Authenticatable
         return $this->hasMany(Calendar::class);
     }
 
+    public function visit(): HasMany
+    {
+        return $this->hasMany(Visit::class);
+    }
+
     public function hasAnyRole($roles)
     {
         if (!is_array($roles)) {

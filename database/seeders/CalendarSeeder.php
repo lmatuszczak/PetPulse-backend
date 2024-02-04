@@ -23,6 +23,7 @@ class CalendarSeeder extends Seeder
                 'end_date' => Carbon::now()->addHour(),
                 'user_id' => 3,
                 'animal_id' => 3,
+                'visit_id' => 1,
             ]
         );Calendar::create(
             [
@@ -32,6 +33,7 @@ class CalendarSeeder extends Seeder
                 'end_date' => Carbon::now()->addHour(),
                 'user_id' => 2,
                 'animal_id' => 2,
+                'visit_id' => 1,
             ]
         );Calendar::create(
             [
@@ -41,6 +43,7 @@ class CalendarSeeder extends Seeder
                 'end_date' => Carbon::now()->addHour(),
                 'user_id' => 1,
                 'animal_id' => 1,
+                'visit_id' => 1,
             ]
         );
         Calendar::create(
@@ -51,6 +54,7 @@ class CalendarSeeder extends Seeder
                 'end_date' => Carbon::now()->addHour(),
                 'user_id' => 3,
                 'animal_id' => 3,
+                'visit_id' => 1,
             ]
         );
         Calendar::create(
@@ -61,6 +65,7 @@ class CalendarSeeder extends Seeder
                 'end_date' => Carbon::now()->addHour(),
                 'user_id' => 2,
                 'animal_id' => 2,
+                'visit_id' => 1,
             ]
         );
         Calendar::create(
@@ -71,6 +76,7 @@ class CalendarSeeder extends Seeder
                 'end_date' => Carbon::now()->addHour(),
                 'user_id' => 1,
                 'animal_id' => 1,
+                'visit_id' => 1,
             ]
         );
 

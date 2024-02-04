@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Calendar extends Model
 {
@@ -16,6 +17,7 @@ class Calendar extends Model
             'end_date',
             'user_id',
             'animal_id',
+            'visit_id',
 
 
         ];
@@ -29,4 +31,5 @@ class Calendar extends Model
     {
         return $this->belongsTo(Animal::class);
     }
+
 }
