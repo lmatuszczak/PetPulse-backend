@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
                 CalendarSeeder::class,
                 TestSeeder::class,
                 MedicalTreatmentSeeder::class,
+                RecommendationSeeder::class,
             ]
         );
     }
