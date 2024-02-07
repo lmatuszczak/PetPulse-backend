@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
                 TestSeeder::class,
                 MedicalTreatmentSeeder::class,
                 RecommendationSeeder::class,
+                ChatSeeder::class,
             ]
         );
     }

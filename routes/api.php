@@ -14,6 +14,7 @@ use App\Http\Controllers\api\UserController;
 use App\Http\Controllers\api\RecommendationController;
 use App\Http\Controllers\api\VisitController;
 use App\Http\Controllers\api\VisitPanelController;
+use App\Http\Controllers\api\ChatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -115,5 +116,11 @@ Route::prefix('visit')->middleware('auth:sanctum')->group(function () {
 
 Route::prefix('visit-panel')->middleware('auth:sanctum')->group(function () {
     Route::get('/{visit}', [VisitPanelController::class, 'show']);
+});
+
+Route::prefix('chat')->middleware('auth:sanctum')->group(function () {
+    Route::get('/', [ChatController::class, 'index']);
+    Route::get('/{id}', [ChatController::class, 'show']);
+    Route::post('/create', [ChatController::class, 'store']);
 });
 

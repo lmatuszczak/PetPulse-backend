@@ -35,10 +35,7 @@ class CalendarController extends Controller
 
     public function show(Calendar $calendar)
     {
-        if ($calendar->user_id === Auth::user()->id) {
-            return response()->json($calendar->load('user', 'animal'));
-        }
-        return response()->json(null, 401);
+        return response()->json($calendar->load('user', 'animal'));
     }
 
     public function store(StoreCalendarRequest $request)
