@@ -22,12 +22,10 @@ class VisitPanelController extends Controller
     {
         $visitData = $visit->load('user');
         $calendar = Calendar::where('visit_id', $visit->id)->get()->toArray();
-        $test = Test::where('visit_id', $visit->id)->get()->toArray();
         $recommendation = Recommendation::where('visit_id', $visit->id)->get()->toArray();
         $medicalTreatment = MedicalTreatment::where('visit_id', $visit->id)->get()->toArray();
         $animal = Animal::where('id', $visit->animal_id)->get()->load(['animalType', 'breed', 'owner'])->toArray();
         $visitData['calendar'] = $calendar;
-        $visitData['test'] = $test;
         $visitData['recommendation'] = $recommendation;
         $visitData['medicalTreatment'] = $medicalTreatment;
         $visitData['animal'] = $animal;

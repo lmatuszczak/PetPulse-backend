@@ -24,10 +24,7 @@ class StoreTestRequest extends FormRequest
         return [
             'name' => 'string|required|max:255',
             'description' => 'string',
-            'start_date' => 'date|required',
-            'end_date' => 'date|required',
             'animal_id' => 'numeric|required|exists:animals,id',
-            'visit_id' => 'numeric|required|exists:visits,id',
         ];
     }
 }
