@@ -79,6 +79,7 @@ Route::prefix('calendar')->middleware('auth:sanctum')->group(function () {
 Route::prefix('test')->middleware('auth:sanctum')->group(function () {
     Route::get('/', [TestController::class, 'index']);
     Route::get('/{test}', [TestController::class, 'show']);
+    Route::get('/animal/{animal}', [TestController::class, 'showAnimalTests']);
     Route::post('/create', [TestController::class, 'store']);
     Route::patch('/update/{test}', [TestController::class, 'update']);
     Route::delete('/destroy/{test}', [TestController::class, 'destroy']);

@@ -11,10 +11,7 @@ class Test extends Model
     protected $fillable = [
         'name',
         'description',
-        'start_date',
-        'end_date',
         'animal_id',
-        'visit_id',
     ];
 
     public function animal(): BelongsTo
