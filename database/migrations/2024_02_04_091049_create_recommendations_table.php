@@ -15,14 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
             $table->unsignedBigInteger('animal_id');
-            $table->unsignedBigInteger('visit_id');
             $table->timestamps();
 
             $table->foreign('animal_id')->references('id')->on('animals');
-            $table->foreign('visit_id')->references('id')->on('visits');
         });
     }
 
