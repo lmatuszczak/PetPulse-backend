@@ -30,10 +30,6 @@ class Visit extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function recommendation(): HasMany
-    {
-        return $this->hasMany(Recommendation::class);
-    }
     public function test(): HasMany
     {
         return $this->hasMany(Test::class);

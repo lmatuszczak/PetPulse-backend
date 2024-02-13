@@ -17,70 +17,49 @@ class RecommendationSeeder extends Seeder
             [
                 'name' => 'Zalecenie ZYX',
                 'description' => 'Opis',
-                'start_date' => now(),
-                'end_date' => now(),
                 'animal_id' => 1,
-                'visit_id' => 1,
             ]
         );
         Recommendation::create(
             [
                 'name' => 'Operacja czaszki-',
                 'description' => 'Opis',
-                'start_date' => now(),
-                'end_date' => now(),
                 'animal_id' => 1,
-                'visit_id' => 1,
             ]
         );
         Recommendation::create(
             [
                 'name' => 'Zalecenie XYZ',
                 'description' => 'Opis',
-                'start_date' => now(),
-                'end_date' => now(),
                 'animal_id' => 1,
-                'visit_id' => 1,
             ]
         );
         Recommendation::create(
             [
                 'name' => 'Zalecenie ZYX',
                 'description' => 'Opis',
-                'start_date' => now(),
-                'end_date' => now(),
                 'animal_id' => 2,
-                'visit_id' => 1,
             ]
         );
         Recommendation::create(
             [
                 'name' => 'Zalecenie ZYX',
                 'description' => 'Opis',
-                'start_date' => now(),
-                'end_date' => now(),
                 'animal_id' => 3,
-                'visit_id' => 1,
             ]
         );
         Recommendation::create(
             [
                 'name' => 'Zalecenie ZYX',
                 'description' => 'Opis',
-                'start_date' => now(),
-                'end_date' => now(),
                 'animal_id' => 4,
-                'visit_id' => 1,
             ]
         );
         Recommendation::create(
             [
                 'name' => 'Zalecenie',
                 'description' => 'Opis',
-                'start_date' => now(),
-                'end_date' => now(),
                 'animal_id' => 5,
-                'visit_id' => 1,
             ]
         );
     }
