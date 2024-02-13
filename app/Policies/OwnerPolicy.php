@@ -22,7 +22,7 @@ class OwnerPolicy
      */
     public function view(User $user): bool
     {
-        return $user->hasAnyRole([Role::IS_ADMIN, Role::IS_VET]);
+        return $user->hasAnyRole([Role::IS_ADMIN, Role::IS_VET, Role::IS_USER]);
     }
 
     /**
@@ -30,7 +30,7 @@ class OwnerPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasAnyRole([Role::IS_ADMIN, Role::IS_VET]);
+        return $user->hasAnyRole([Role::IS_ADMIN, Role::IS_VET, Role::IS_USER]);
     }
 
     /**
@@ -38,7 +38,7 @@ class OwnerPolicy
      */
     public function update(User $user): bool
     {
-        return $user->hasAnyRole([Role::IS_ADMIN, Role::IS_VET]);
+        return $user->hasAnyRole([Role::IS_ADMIN, Role::IS_VET, Role::IS_USER]);
     }
 
     /**
@@ -46,7 +46,7 @@ class OwnerPolicy
      */
     public function delete(User $user): bool
     {
-        return $user->hasAnyRole([Role::IS_ADMIN, Role::IS_VET]);
+        return $user->hasAnyRole([Role::IS_ADMIN, Role::IS_VET, Role::IS_USER]);
     }
 
     /**
