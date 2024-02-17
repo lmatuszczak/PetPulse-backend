@@ -9,6 +9,7 @@ use App\Http\Requests\StoreOwnerRequest;
 use App\Http\Requests\UpdateOwnerRequest;
 use App\Models\Animal;
 use App\Models\Owner;
+use App\Models\User;
 use App\Models\Visit;
 
 class OwnerController extends Controller
@@ -25,7 +26,9 @@ class OwnerController extends Controller
 
     public function show(Owner $Owner)
     {
-        return response()->json($Owner->load(['user']));
+        $user = User::all()->where('id',$Owner->user_id)->load('role')->toArray();
+        $Owner['user'] = $user;
+        return response()->json($Owner);
     }
 
     public function store(StoreOwnerRequest $request)
