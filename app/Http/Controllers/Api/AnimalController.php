@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAnimalRequest;
 use App\Http\Requests\UpdateAnimalRequest;
 use App\Models\Animal;
+use App\Models\Recommendation;
 
 class AnimalController extends Controller
 {
@@ -14,6 +15,7 @@ class AnimalController extends Controller
     {
         $this->authorizeResource(Animal::class, 'animal');
     }
+
     public function index()
     {
         return response()->json(Animal::all()->load('animalType', 'breed', 'owner'));
@@ -26,18 +28,21 @@ class AnimalController extends Controller
 
     public function store(StoreAnimalRequest $request)
     {
-        //$this->authorize('update', Animal::class);
         return response()->json(Animal::create($request->toArray()), 201);
     }
 
     public function update(UpdateAnimalRequest $request, Animal $animal)
     {
-        //$this->authorize('update', Animal::class);
         return response()->json($animal->update($request->toArray()));
     }
 
     public function destroy(Animal $animal)
     {
         return response()->json($animal->delete());
+    }
+
+    public function allAnimalRecommendations(Animal $animal)
+    {
+        return response()->json(Recommendation::all()->where('animal_id', $animal->id));
     }
 }

@@ -39,6 +39,7 @@ Route::prefix('animal')->middleware('auth:sanctum')->group(function () {
     Route::post('/create', [AnimalController::class, 'store']);
     Route::patch('/update/{animal}', [AnimalController::class, 'update']);
     Route::delete('/destroy/{animal}', [AnimalController::class, 'destroy']);
+    Route::get('/recommendation/all/{animal}',[AnimalController::class, 'allAnimalRecommendations']);
 });
 
 Route::prefix('animal-type')->middleware('auth:sanctum')->group(function () {
@@ -62,6 +63,7 @@ Route::prefix('owner')->middleware('auth:sanctum')->group(function () {
     Route::get('/{owner}', [OwnerController::class, 'show']);
     Route::post('/create', [OwnerController::class, 'store']);
     Route::patch('/update/{owner}', [OwnerController::class, 'update']);
+    Route::get('/animals/{owner}', [OwnerController::class, 'AllOwnersAnimals']);
 });
 
 Route::prefix('role')->middleware('auth:sanctum')->group(function () {
