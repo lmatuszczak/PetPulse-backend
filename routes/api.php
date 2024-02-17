@@ -64,6 +64,7 @@ Route::prefix('owner')->middleware('auth:sanctum')->group(function () {
     Route::post('/create', [OwnerController::class, 'store']);
     Route::patch('/update/{owner}', [OwnerController::class, 'update']);
     Route::get('/animals/{owner}', [OwnerController::class, 'AllOwnersAnimals']);
+    Route::get('/visits/{owner}', [OwnerController::class, 'AllOwnerVisits']);
 });
 
 Route::prefix('role')->middleware('auth:sanctum')->group(function () {
