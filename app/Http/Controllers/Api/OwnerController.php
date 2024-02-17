@@ -7,6 +7,7 @@ use App\Http\Controllers\AnimalTypeRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOwnerRequest;
 use App\Http\Requests\UpdateOwnerRequest;
+use App\Models\Animal;
 use App\Models\Owner;
 
 class OwnerController extends Controller
@@ -15,6 +16,7 @@ class OwnerController extends Controller
     {
         $this->authorizeResource(Owner::class, 'owner');
     }
+
     public function index()
     {
         return response()->json(Owner::all()->load(['user']));
@@ -33,6 +35,11 @@ class OwnerController extends Controller
     public function update(UpdateOwnerRequest $request, Owner $Owner)
     {
         return response()->json($Owner->update($request->toArray()));
+    }
+
+    public function AllOwnersAnimals(Owner $Owner)
+    {
+        return response()->json(Animal::all()->where('owner_id', $Owner->id)->load('animalType', 'breed'));
     }
 
 }
