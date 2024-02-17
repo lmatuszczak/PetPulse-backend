@@ -9,6 +9,7 @@ use App\Http\Requests\StoreOwnerRequest;
 use App\Http\Requests\UpdateOwnerRequest;
 use App\Models\Animal;
 use App\Models\Owner;
+use App\Models\Visit;
 
 class OwnerController extends Controller
 {
@@ -40,6 +41,12 @@ class OwnerController extends Controller
     public function AllOwnersAnimals(Owner $Owner)
     {
         return response()->json(Animal::all()->where('owner_id', $Owner->id)->load('animalType', 'breed'));
+    }
+
+    public function AllOwnerVisits(Owner $Owner)
+    {
+        $animal = Animal::where('owner_id', $Owner->id)->pluck('id')->toArray();
+        return response()->json(Visit::all()->whereIn('animal_id', $animal)->load('animal'));
     }
 
 }
