@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginUserRequest;
+use App\Models\Owner;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,7 +31,10 @@ class LoginController extends Controller
 
     public function getUserInfo()
     {
-        return response()->json(Auth::user()->load('role')->toArray());
+        $owner =  Owner::all()->where('user_id', Auth::user()->id)->toArray();
+        $user = Auth::user()->load('role')->toArray();
+        $user['owner'] = $owner;
+        return response()->json($user);
     }
 
 }
