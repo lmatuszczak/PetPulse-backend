@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UpdateUserRoleRequest;
 use App\Models\User;
 
 class UserController extends Controller
@@ -37,5 +38,10 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         return response()->json($user->delete());
+    }
+
+    Public function updateRoleUser(UpdateUserRoleRequest $request, User $user)
+    {
+        return response()->json($user->update($request->toArray()));
     }
 }

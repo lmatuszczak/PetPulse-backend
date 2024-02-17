@@ -102,6 +102,7 @@ Route::prefix('user')->middleware('auth:sanctum')->group(function () {
     Route::post('/create', [UserController::class, 'store']);
     Route::patch('/update/{user}', [UserController::class, 'update']);
     Route::delete('/destroy/{user}', [UserController::class, 'destroy']);
+    Route::patch('/update/role/{user}', [UserController::class, 'updateRoleUser']);
 });
 
 Route::prefix('recommendation')->middleware('auth:sanctum')->group(function () {
