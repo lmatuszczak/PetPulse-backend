@@ -17,37 +17,61 @@ class ChatSeeder extends Seeder
             'room_id' => 1,
             'user_id' => 1,
             'to_user_id' => 2,
-            'message' => '1 wiadomosc',
+            'message' => 'Dzień dobry,pisze w sprawie mojego psa, Reksia. Zauważyłam, że od wczoraj  mało je. Czy mogę umówić się na wizytę?',
         ]);
         Chat::create([
             'room_id' => 1,
             'user_id' => 2,
             'to_user_id' => 1,
-            'message' => '2 wiadomosc',
+            'message' => 'Dzień dobry Pani Katarzyno, oczywiście, możemy umówić wizytę. Czy Reksio miał jakieś inne objawy, np. wymioty lub biegunkę?',
         ]);
         Chat::create([
             'room_id' => 1,
             'user_id' => 1,
             'to_user_id' => 2,
-            'message' => '3 wiadomosc',
+            'message' => 'Nie, nie zauważyłam innych objawów, ale wydaje się być jakiś smutny i nie ma energii.',
         ]);
         Chat::create([
             'room_id' => 1,
             'user_id' => 2,
             'to_user_id' => 1,
-            'message' => '4 wiadomosc',
+            'message' => 'Rozumiem. Czy mogę prosić o numer mikrochipu Reksia, aby zweryfikować jego dane w naszym systemie?',
         ]);
         Chat::create([
             'room_id' => 1,
             'user_id' => 1,
             'to_user_id' => 2,
-            'message' => '5 wiadomosc',
+            'message' => 'Tak, numer to 982 000394857291.',
         ]);
         Chat::create([
             'room_id' => 1,
             'user_id' => 2,
             'to_user_id' => 1,
-            'message' => '6 wiadomosc',
+            'message' => ' Dziękuję, widzę go w systemie. Mamy wolny termin jutro o 10:00 rano lub po południu o 15:30. Która godzina byłaby dla Pani dogodna?',
+        ]);
+        Chat::create([
+            'room_id' => 1,
+            'user_id' => 1,
+            'to_user_id' => 2,
+            'message' => 'Jutro o 10:00 będzie idealnie.',
+        ]);
+        Chat::create([
+            'room_id' => 1,
+            'user_id' => 2,
+            'to_user_id' => 1,
+            'message' => 'Świetnie, zarezerwowałem wizytę na 10:00. Proszę pamiętać, aby na wizytę przynieść kartę zdrowia Reksia oraz listę ewentualnych leków, które przyjmuje. Czy jest coś jeszcze, w czym mogę pomóc?',
+        ]);
+        Chat::create([
+            'room_id' => 1,
+            'user_id' => 1,
+            'to_user_id' => 2,
+            'message' => 'Nie, to wszystko na chwilę obecną. Dziękuję bardzo i do zobaczenia jutro.',
+        ]);
+        Chat::create([
+            'room_id' => 1,
+            'user_id' => 2,
+            'to_user_id' => 1,
+            'message' => 'Nie ma za co, do zobaczenia jutro. Życzę miłego dnia.',
         ]);
     }
 }
